@@ -1,0 +1,68 @@
+a {
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+}
+#div1 {
+    text-align:center;
+    height: 100vh;
+    position: relative;
+    background-color: #C8C8C8;
+    padding-left: 5px;
+}
+
+#div2, #div4, #webCam, #canvas{
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    top: 200px; 
+    left: 200px;
+}
+
+#div2, #webCam {
+    opacity: 1;
+    z-index: 1;
+}
+#div4 {
+    opacity: 1;
+    z-index: 2;
+    background-image:url('https://lh3.googleusercontent.com/d/1HTc1PAX0Z93eTqyEgPnZZjD35h8b-UsJ=w500?authuser=0');
+    background-size: 800px;
+}
+#webCam{
+    background-color: #36FF00;
+}
+#div0{
+top: 20px;
+left: 170px;
+top: 65px;
+left: 50px;
+}
+
+#filename {
+    margin-bottom:15px;
+    margin-top:15px;
+}
+
+#userType {
+    margin-bottom:15px;
+    margin-top:15px;
+}
+
+label {
+    margin:auto 30px;
+}
+
+#piepagina {
+    background-color:yellow;
+}
+
+#piepagina > p {
+    font-size:12px;
+}
+
+#input-div {
+    margin-top: 10px;
+}

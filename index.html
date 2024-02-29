@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="div1">
+        <label for="filename">Escribe el ID del alumno (a 5 dígitos) o número de empleado del profesor (a 7 dígitos) incluyendo los múmeros ceros:</label></br>
+     <div id="input-div">
+        <input type="text" id="filename" selected >
+        <a download id="download-link" onclick="takeAPicture()">Tomar foto</a><br>
+     </div>
+     <p>Las fotos deberán guardarse en la unidad Z de la computadora, escribe en la barra de dirección del cuadro de guardar la letra Z.<
+     </br>Ejemplo de cómo se verá el alumno en ela fotografía de la credencial</p>
+
+     <select name="available-cameras" id="available-cameras" title="available-cameras">
+        <option value="">-Selecciona una cámara-</option>
+     </select>
+ 
+        <div id="div2">
+        </div>
+        <div id="div4">
+        </div>
+        <video id="webCam" autoplay playsinlne width="800" height="600"></video>
+        <canvas id="canvas"></canvas>
+    
+ </div>
+ 
+ <div id="piepagina">
+     <p>Aplicación web creada por el área de Sistemas de la Universidad ICEL Campus Cuautitlán</br>Jorge Louis de Jesús Ruiz</p>
+ </div>
+
+ <script src="index.js"></script>
+    
+</body>
+</html>
