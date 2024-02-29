@@ -2,9 +2,36 @@ const webCamElement = document.getElementById("webCam");
 const canvasElement = document.getElementById("canvas");
 const downloadLink = document.getElementById('download-link');
 const webcam = new Webcam(webCamElement, "user", canvasElement);
-const cameraOptions = document.getElementById('available-cameras')
+const camaraOpciones = document.getElementById('available-cameras')
 webcam.start();
-const cameras = webcam.webcamList
+
+const tamañoCamara = {
+  video: {
+    ancho: {
+      min: 1280,
+      ideal: 1920,
+      max: 2560,
+    },
+    alto: {
+      min: 720,
+      ideal: 1080,
+      max: 1440
+    }
+  }
+}
+
+async function enlistarCamaras() {
+
+  const dispositivos = await navigator.mediaDevices.enumerateDevices();
+  const videoDevices = dispositivos.filter(dispositivo => dispositivo.kind == 'videoinput')
+  const camaras = videoDevices.map(camara => {
+
+    return `<option id="${camara.deviceId}">${camara.label}</option>`
+
+  })
+  camaraOpciones.innerHTML = camaras.join('')
+
+}
 
 	function takeAPicture() {
 
@@ -32,4 +59,28 @@ const cameras = webcam.webcamList
 		document.querySelector("a").download = prefix + fileName + ".png";
 	}
 
-  console.log(cameras)
+camaraOpciones.onchange = () => {
+
+  if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
+
+    const nuevaCamara = {
+      ...tamañoCamara,
+      deviceId: {
+        exact: camaraOpciones.value
+      }
+    }
+
+    empezarStream(nuevaCamara)
+
+  }
+
+}
+
+async function empezarStream(tamañoCamara) {
+
+  const stream = await navigator.mediaDevices.getUserMedia(tamañoCamara)
+  webCamElement.srcObject = stream
+
+}
+
+enlistarCamaras()
